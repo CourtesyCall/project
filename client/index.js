@@ -210,6 +210,7 @@ $(document).ready(function() {
                 $('#imageProduct').val(product.image);
                 $('#description').val(product.description);
                 $('#startDate').val(product.startedSale.slice(0, 10)); // Use only YYYY-MM-DD for the date
+                $('#price').val(product.price);
 
                 // Save updated product data
                 $('#saveProduct').off('click').on('click', function() {
@@ -217,8 +218,8 @@ $(document).ready(function() {
                         name: $('#productName').val(),
                         description: $('#description').val(),
                         image: $('#imageProduct').val(),
-                        price: 231, // Product price
-                        startedSale: $('#startDate').val()
+                        price: $('#price').val(), // Product price
+                        startedSale: $('#startDate').val(),
                     };
 
                     fetch(`http://localhost:3000/products/${productId}`, {
